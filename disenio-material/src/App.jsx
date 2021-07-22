@@ -1,8 +1,10 @@
+// IMPORTANDO UN BOTON
+import Button from '@material-ui/core/Button'
 
 function App() {
   return (
     <div>
-      holaaa
+      <button>Este es un boton</button>
     </div>
   );
 }
