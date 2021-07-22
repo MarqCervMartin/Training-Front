@@ -1,17 +1,24 @@
 // IMPORTANDO UN BOTON
-import Button from '@material-ui/core/Button'
-
-
-
-
+//import Button from '@material-ui/core/Button'
 
 //SEGUNDA OPCION PARA IMPORTAR
 //import {Button} from '@material-ui/core'
 
 
+
+
 function App() {
   return (
     <div>
+
+    </div>
+  );
+}
+
+export default App;
+
+/*
+PRUEBAS BOTONES
       <Button color="default">
         Color
       </Button>
@@ -43,10 +50,4 @@ function App() {
       <Button variant="contained" color="secondary" size="large">
         large 
       </Button>
-
-
-    </div>
-  );
-}
-
-export default App;
+*/
