@@ -9,6 +9,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {Button, IconButton, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
 import { buildQueries } from '@testing-library/dom';
+import {ThemeProvider} from '@material-ui/core/styles'
+import theme from './temaConfig'
 
 const useStyle = makeStyles(
   {
@@ -26,9 +28,25 @@ function App() {
 
   return (
     <div>       
-      <Button className={classes.gus}>
-        Mi boton personalizado
-      </Button>
+
+    <ThemeProvider theme={theme}>
+      <Button 
+          variant="contained" 
+          color="primary"
+        >
+        Boton1 
+        </Button>
+
+        <Button 
+          variant="contained" 
+          color="secondary"
+        >
+        Boton2
+        </Button>
+    </ThemeProvider>
+
+      
+
     </div>
 
 
@@ -114,6 +132,9 @@ USANDO TIPOGRAFIAS
         holaaa2 h1
       </Typography>
 
-
+USANDO CSS 
+      <Button className={classes.gus}>
+        Mi boton personalizado
+      </Button>
 
 */
