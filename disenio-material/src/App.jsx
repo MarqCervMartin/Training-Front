@@ -7,36 +7,28 @@
 //IMPORTANDO ICONOS
 import DeleteIcon from '@material-ui/icons/Delete';
 import {Button, IconButton, Typography} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles'
+import { buildQueries } from '@testing-library/dom';
+
+const useStyle = makeStyles(
+  {
+    gus : {
+      background: 'blue',
+      borderRadius: 3,
+      padding: '0 30px',
+    }
+  }
+)
 
 function App() {
+
+  const classes = useStyle();
+
   return (
     <div>       
-      <Typography 
-        variant="h1" 
-        color="primary"      
-      >
-        holaaa h1
-      </Typography>
-
-      <Typography 
-        variant="body1" 
-        color="secondary"      
-        align="center"
-        paragraph     
-      >
-        lorem
-      </Typography>
-
-      <Typography 
-        variant="body1" 
-        color="primary"
-        align="center" 
-      >
-        holaaa2 h1
-      </Typography>
-
-
-
+      <Button className={classes.gus}>
+        Mi boton personalizado
+      </Button>
     </div>
 
 
@@ -46,7 +38,7 @@ function App() {
 export default App;
 
 /*
-PRUEBAS BOTONES
+USANDO BOTONES
       <Button color="default">
         Color
       </Button>
@@ -80,7 +72,7 @@ PRUEBAS BOTONES
       </Button>
 
 
-ICONOS      
+USANDO ICONOS      
       <Button 
         variant="contained" 
         color="secondary" 
@@ -94,6 +86,34 @@ ICONOS
       >        
         <DeleteIcon color="primary"/>
       </IconButton>
+
+
+
+USANDO TIPOGRAFIAS
+      <Typography 
+        variant="h1" 
+        color="primary"      
+      >
+        holaaa h1
+      </Typography>
+
+      <Typography 
+        variant="body1" 
+        color="secondary"      
+        align="center"
+        paragraph     
+      >
+        lorem
+      </Typography>
+
+      <Typography 
+        variant="body1" 
+        color="primary"
+        align="center" 
+      >
+        holaaa2 h1
+      </Typography>
+
 
 
 */
