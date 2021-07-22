@@ -4,14 +4,25 @@
 //SEGUNDA OPCION PARA IMPORTAR
 //import {Button} from '@material-ui/core'
 
-
-
+//IMPORTANDO ICONOS
+import DeleteIcon from '@material-ui/icons/Delete';
+import {Icon, Button} from '@material-ui/core';
 
 function App() {
   return (
-    <div>
+    <div> 
+      
+      <Button 
+        variant="contained" 
+        color="secondary" 
+        startIcon={<DeleteIcon/>}
+      >
+        Delete
+      </Button>
 
     </div>
+
+
   );
 }
 
