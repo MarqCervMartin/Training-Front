@@ -6,7 +6,7 @@
 
 //IMPORTANDO ICONOS
 import DeleteIcon from '@material-ui/icons/Delete';
-import {Icon, Button} from '@material-ui/core';
+import {Button, IconButton} from '@material-ui/core';
 
 function App() {
   return (
@@ -19,6 +19,13 @@ function App() {
       >
         Delete
       </Button>
+
+      <IconButton 
+        aria-label="delete"         
+      >        
+        <DeleteIcon color="primary"/>
+      </IconButton>
+
 
     </div>
 
