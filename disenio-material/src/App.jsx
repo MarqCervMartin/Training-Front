@@ -6,25 +6,35 @@
 
 //IMPORTANDO ICONOS
 import DeleteIcon from '@material-ui/icons/Delete';
-import {Button, IconButton} from '@material-ui/core';
+import {Button, IconButton, Typography} from '@material-ui/core';
 
 function App() {
   return (
-    <div> 
-      
-      <Button 
-        variant="contained" 
-        color="secondary" 
-        startIcon={<DeleteIcon/>}
+    <div>       
+      <Typography 
+        variant="h1" 
+        color="primary"      
       >
-        Delete
-      </Button>
+        holaaa h1
+      </Typography>
 
-      <IconButton 
-        aria-label="delete"         
-      >        
-        <DeleteIcon color="primary"/>
-      </IconButton>
+      <Typography 
+        variant="body1" 
+        color="secondary"      
+        align="center"
+        paragraph     
+      >
+        lorem
+      </Typography>
+
+      <Typography 
+        variant="body1" 
+        color="primary"
+        align="center" 
+      >
+        holaaa2 h1
+      </Typography>
+
 
 
     </div>
@@ -68,4 +78,22 @@ PRUEBAS BOTONES
       <Button variant="contained" color="secondary" size="large">
         large 
       </Button>
+
+
+ICONOS      
+      <Button 
+        variant="contained" 
+        color="secondary" 
+        startIcon={<DeleteIcon/>}
+      >
+        Delete
+      </Button>
+
+      <IconButton 
+        aria-label="delete"         
+      >        
+        <DeleteIcon color="primary"/>
+      </IconButton>
+
+
 */
