@@ -2,6 +2,7 @@ import Button from '@material-ui/core/Button'
 import google from '../svg_p/google.svg'
 import gmail from '../svg_p/gmail.svg'
 import { makeStyles } from '@material-ui/styles'
+import { MdEmail } from "react-icons/md";
 
 const estilos = makeStyles(theme=> ({
     claseImg:{
@@ -36,6 +37,14 @@ const BotonesPP = () => {
     
     const classes = estilos()
 
+    function imprimir(){
+        console.log('Imprimiendo...');
+    }
+
+    const loginWithEmail = () => console.log('Authenticando con email ');
+    //Funcion con parametros, template strings, ECMA6
+    const loginWithEmailParams = (nombre, numero) => console.log(`Mi nombre es ${nombre} y mi número es ${numero}`);
+
     return (
         <div>
             <div  className={classes.root}>
@@ -53,6 +62,27 @@ const BotonesPP = () => {
                 </Button>
             </div>
 
+            <div>
+            <Button 
+                    variant="contained" 
+                    color="default"
+                    className={classes.claseButton2}
+                    //onClick= {loginWithEmail}
+                    onClick= {() => loginWithEmailParams('Gustavo', 4444)}
+                    //onClick= {imprimir}
+                >
+                    <img 
+                        src={gmail} 
+                        alt="logoGoogle"    
+                        className={classes.claseImg2}        
+                    />
+                    <MdEmail
+                        size={100}
+                        color={'red'}
+                    />
+                    Login With Icon  
+                </Button>
+            </div>
             <div>
             <Button 
                     variant="contained" 
