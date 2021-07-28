@@ -58,3 +58,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.hooks_Router{
+  cursor: pointer;
+  opacity: 1;
+  
+}
