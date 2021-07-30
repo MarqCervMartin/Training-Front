@@ -1,13 +1,13 @@
 import React from "react";
 
-const Contactos = () => {
+const PageNotFound = () => {
     return (
         <div className="App">
             <h1 className="text-white">
-            Aqui estaran tus contactos
+                Esa pagina seguro es Nopor, aqui somos buenos cristianos
             </h1>
         </div> 
     )
 }
 
-export default Contactos
+export default PageNotFound
