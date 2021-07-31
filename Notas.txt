@@ -1,3 +1,11 @@
+Para poder clonar todo el repositorio con todo y las ramas es necesario que primero hagamos el 
+git clone
+luego el git branch -av para conocer todas las ramas que contiene el repo
+una ves que sepamos cuales hay debemos cambiarnos a todas estas ramas para activarlas
+
+
+
+
 Pasos
 1.- Creamos el proyecto de react 
 npx create-react-app login
