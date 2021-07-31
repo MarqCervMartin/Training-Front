@@ -1,0 +1,34 @@
+Pasos
+1.- Creamos el proyecto de react 
+npx create-react-app login
+
+2.- Instalamos firebase de manera global
+npm install -g firebase
+
+3.- Nos logemamos en firebase
+firebase login
+
+4.- Reparamos los errores
+npm audit fix --force
+
+4.- Instalamos las dependencias
+npm i -S firebase react-with-firebase-auth
+
+5.- Se va a modificar y crear
+firebaseConfig.js (
+    apiKey: "AIzaSyBfFw5HIf76FTPWvT1WZ7OaMDzh_CxYfvY",
+    authDomain: "chatfirebase-4da56.firebaseapp.com",
+    databaseURL: "https://chatfirebase-4da56-default-rtdb.firebaseio.com",
+    projectId: "chatfirebase-4da56",
+    storageBucket: "chatfirebase-4da56.appspot.com",
+    messagingSenderId: "566574066915",
+    appId: "1:566574066915:web:2c0bca320ee725338a29d6",
+    measurementId: "G-85X44ZRV4K"
+) lo del proyecto de firebase
+
+serviceWorker.js
+Login.js
+App.js (se importa el login)
+Index.js
+
+NOTA: Todo esto se ocupo en npm no en yarn pero para ejecutar se puede con ambos
