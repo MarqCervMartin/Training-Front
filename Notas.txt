@@ -19,10 +19,10 @@ firebase login
 4.- Reparamos los errores
 npm audit fix --force
 
-4.- Instalamos las dependencias
+5.- Instalamos las dependencias
 npm i -S firebase react-with-firebase-auth
 
-5.- Se va a modificar y crear
+6.- Se va a modificar y crear
 firebaseConfig.js (
     apiKey: "AIzaSyBfFw5HIf76FTPWvT1WZ7OaMDzh_CxYfvY",
     authDomain: "chatfirebase-4da56.firebaseapp.com",
