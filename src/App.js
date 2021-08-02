@@ -13,7 +13,8 @@ import Chats from "./componentes/Chats";
 import Contactos from "./componentes/Contactos";
 import Info from "./componentes/Info";
 import Perfil from "./componentes/Perfil";
-import PageNotFound from "./componentes/PageNotFound"
+import PageNotFound from "./componentes/PageNotFound";
+import Login from './componentes/Login';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo"/>
         <Link to="/perfil" className="text-white">Mi Perfil</Link>
           <div className="btn-group">
+            <NavLink to="/Login" className="btn btn-dark" activeClassName="active">
+              Login
+            </NavLink>
             <NavLink to="/" className="btn btn-dark" activeClassName="active">
               Home
             </NavLink>
@@ -44,6 +48,7 @@ function App() {
           <Route exact path="/chats" component={Chats}/>
           <Route exact path="/info" component={Info}/>
           <Route exact path="/perfil" component={Perfil}/>
+          <Route exact path="/Login" component={Login}/>
           <Route component={PageNotFound}/>
         </Switch>  
       </div>
