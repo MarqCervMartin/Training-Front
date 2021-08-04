@@ -1,7 +1,28 @@
-import React, { Component } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 import Login from './Login.js';
+import {ThemeProvider} from '@material-ui/core/styles'
+import theme from './temaConfig'
+import FirstScreen from './components/Login/FirstScreen'
+import SecondScreen from './components/Conectando/SecondScreen'
+import ThirdScreen  from './components/Listo/ThirdScreen'
+
+function App() {
+  return (
+
+    <div>
+      <ThemeProvider theme={theme}>
+              <FirstScreen/>
+      </ThemeProvider>
+    </div>
+  );
+}
+
+export default App;
+/*
+
+import React, { Component } from 'react';
 
 class App extends Component {
   render() {
@@ -16,3 +37,5 @@ class App extends Component {
   }
 }
 export default App;
+
+*/
