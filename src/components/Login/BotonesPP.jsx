@@ -3,6 +3,8 @@ import google from '../svg_p/google.svg'
 import gmail from '../svg_p/gmail.svg'
 import { makeStyles } from '@material-ui/styles'
 import { MdEmail } from "react-icons/md";
+import Login from '../../Login'
+
 
 const estilos = makeStyles(theme=> ({
     claseImg:{
@@ -33,21 +35,16 @@ const estilos = makeStyles(theme=> ({
 
 }))
 
+
+
 const BotonesPP = () => {
     
     const classes = estilos()
 
-    function imprimir(){
-        console.log('Imprimiendo...');
-    }
-
-    const loginWithEmail = () => console.log('Authenticando con email ');
-    //Funcion con parametros, template strings, ECMA6
-    const loginWithEmailParams = (nombre, numero) => console.log(`Mi nombre es ${nombre} y mi número es ${numero}`);
-
     return (
         <div>
             <div  className={classes.root}>
+
                 <Button 
                     variant="contained" 
                     color="default"
@@ -67,8 +64,34 @@ const BotonesPP = () => {
                     variant="contained" 
                     color="default"
                     className={classes.claseButton2}
+                >
+                    <img 
+                        src={gmail} 
+                        alt="logoGoogle"    
+                        className={classes.claseImg2}        
+                    />
+                    Login With Email  
+                </Button>
+            </div>
+                
+            </div>
+    )
+
+
+}
+
+export default BotonesPP
+
+
+
+/*
+            <div>
+            <Button 
+                    variant="contained" 
+                    color="default"
+                    className={classes.claseButton2}
                     //onClick= {loginWithEmail}
-                    onClick= {() => loginWithEmailParams('Gustavo', 4444)}
+                    //onClick= {() => loginWithEmailParams('Gustavo', 4444)}
                     //onClick= {imprimir}
                 >
                     <img 
@@ -83,23 +106,5 @@ const BotonesPP = () => {
                     Login With Icon  
                 </Button>
             </div>
-            <div>
-            <Button 
-                    variant="contained" 
-                    color="default"
-                    className={classes.claseButton2}
-                >
-                    <img 
-                        src={gmail} 
-                        alt="logoGoogle"    
-                        className={classes.claseImg2}        
-                    />
-                    Login With Email  
-                </Button>
-            </div>
-                
-            </div>
-    )
-}
 
-export default BotonesPP
+*/
