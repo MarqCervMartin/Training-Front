@@ -3,7 +3,9 @@ import google from '../svg_p/google.svg'
 import gmail from '../svg_p/gmail.svg'
 import { makeStyles } from '@material-ui/styles'
 import { MdEmail } from "react-icons/md";
+import {auth , provider}  from '../../firebase';
 
+import {useAuthState} from 'react-firebase-hooks/auth';
 
 const estilos = makeStyles(theme=> ({
     claseImg:{
@@ -37,17 +39,26 @@ const estilos = makeStyles(theme=> ({
 
 
 const BotonesPP = () => {
-    
+        // Sign in with google
+
+    const [user] = useAuthState(auth);
+
+    const signin = () => {
+        auth.signInWithPopup(provider).catch(alert);
+    }
+
     const classes = estilos()
 
     return (
         <div>
+
             <div  className={classes.root}>
 
                 <Button 
                     variant="contained" 
                     color="default"
                     className={classes.claseButton}
+                    onClick={signin}
                 >
                     <img 
                         src={google} 
