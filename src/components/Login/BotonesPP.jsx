@@ -3,7 +3,6 @@ import google from '../svg_p/google.svg'
 import gmail from '../svg_p/gmail.svg'
 import { makeStyles } from '@material-ui/styles'
 import { MdEmail } from "react-icons/md";
-import Login from '../../Login'
 
 
 const estilos = makeStyles(theme=> ({
