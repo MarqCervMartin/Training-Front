@@ -1,13 +1,15 @@
 import React from 'react';
-import {auth} from './firebase';
-import {useAuthState} from 'react-firebase-hooks/auth';
-import Login from './login';
-import Mainpage from './Main';
+import {ThemeProvider} from '@material-ui/core/styles';
+import theme from './temaConfig'
+import Union from './Union'
 
 function App() {
-const [user] = useAuthState(auth);
 return (
-	user ? <Mainpage/> : <Login/>
+	
+		<ThemeProvider theme={theme}>
+			<Union />
+		</ThemeProvider>
+	
 );
 }
 

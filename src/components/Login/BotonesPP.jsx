@@ -41,8 +41,6 @@ const estilos = makeStyles(theme=> ({
 const BotonesPP = () => {
         // Sign in with google
 
-    const [user] = useAuthState(auth);
-
     const signin = () => {
         auth.signInWithPopup(provider).catch(alert);
     }
