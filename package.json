@@ -17,6 +17,12 @@
     "@material-ui/icons": "^4.11.2",
     "react-firebase-hooks": "^3.0.4"
   },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+    },
   "eslintConfig": {
     "extends": [
       "react-app",
