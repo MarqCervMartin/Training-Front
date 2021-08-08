@@ -32,13 +32,7 @@ function App() {
             <NavLink to="/Login" className="btn btn-dark" activeClassName="active">
               {
                 auth.currentUser.email
-              }
-              <button
-                className="btn btn-dark"
-                onClick={logout}>
-                  Logout
-                </button>
-                
+              }              
             </NavLink>
             <NavLink to="/" className="btn btn-dark" activeClassName="active">
               Home
@@ -52,6 +46,12 @@ function App() {
             <NavLink to="/info" className="btn btn-dark" activeClassName="active">
               Info
             </NavLink>
+
+
+            <NavLink to="/info" className="btn btn-dark" activeClassName="active" onClick={logout}>                
+                  Logout
+            </NavLink>
+            
           </div>
         </nav>
         <Switch>
