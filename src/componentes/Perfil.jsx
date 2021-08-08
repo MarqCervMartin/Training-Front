@@ -4,7 +4,7 @@ const Perfil = () => {
     return (
         <div className="App">
             <h1 className="text-white">
-                Aqui se veran los datos del usuario
+                hola
             </h1>
         </div> 
     )

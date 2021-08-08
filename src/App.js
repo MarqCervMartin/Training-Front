@@ -29,7 +29,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo"/>
         <Link to="/perfil" className="text-white">Mi Perfil</Link>
           <div className="btn-group">
-            <NavLink to="/Login" className="btn btn-dark" activeClassName="active">
+            <NavLink to="/perfil" className="btn btn-dark" activeClassName="active">
               {
                 auth.currentUser.email
               }              
