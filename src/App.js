@@ -30,15 +30,16 @@ function App() {
         <Link to="/perfil" className="text-white">Mi Perfil</Link>
           <div className="btn-group">
             <NavLink to="/Login" className="btn btn-dark" activeClassName="active">
-              Login
+              {
+                auth.currentUser.email
+              }
+              <button
+                className="btn btn-dark"
+                onClick={logout}>
+                  Logout
+                </button>
+                
             </NavLink>
-            {
-				auth.currentUser.email
-			}
-			<button style={{"marginLeft" : "20px"}}
-			onClick={logout}>
-				Logout
-			</button>
             <NavLink to="/" className="btn btn-dark" activeClassName="active">
               Home
             </NavLink>

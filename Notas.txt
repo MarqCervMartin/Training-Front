@@ -40,3 +40,6 @@ App.js (se importa el login)
 Index.js
 
 NOTA: Todo esto se ocupo en npm no en yarn pero para ejecutar se puede con ambos
+
+NOTA 2: Si no jala por firebase, instala esto:
+    npm install firebase --save
