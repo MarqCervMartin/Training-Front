@@ -1,11 +1,11 @@
 import React from "react";
+import {auth} from '../firebase';
 
 const Perfil = () => {
     return (
-        <div className="App">
-            <h1 className="text-white">
-                Aqui se veran los datos del usuario
-            </h1>
+        <div className="App">{
+            auth.currentUser.photoURL 
+          }   
         </div> 
     )
 }

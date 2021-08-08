@@ -31,7 +31,9 @@ function App() {
           <div className="btn-group">
             <NavLink to="/Login" className="btn btn-dark" activeClassName="active">
               {
-                auth.currentUser.email
+                auth.currentUser.photoURL ? 
+                <img src={auth.currentUser.photoURL} className="App-logo" alt="logo"/> : <img src={logo} className="App-logo" alt="logo"/>
+                //const photoURL = user.photoURL;
               }              
             </NavLink>
             <NavLink to="/" className="btn btn-dark" activeClassName="active">
