@@ -15,9 +15,13 @@ import Info from "./componentes/Info";
 import Perfil from "./componentes/Perfil";
 import PageNotFound from "./componentes/PageNotFound";
 import Login from './componentes/Login';
+import {auth} from './firebase';
 
 
 function App() {
+  const logout = () => {
+		auth.signOut();
+	}
   return (
     <Router>
       <div className="Container">
@@ -28,6 +32,13 @@ function App() {
             <NavLink to="/Login" className="btn btn-dark" activeClassName="active">
               Login
             </NavLink>
+            {
+				auth.currentUser.email
+			}
+			<button style={{"marginLeft" : "20px"}}
+			onClick={logout}>
+				Logout
+			</button>
             <NavLink to="/" className="btn btn-dark" activeClassName="active">
               Home
             </NavLink>
