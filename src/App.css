@@ -37,3 +37,34 @@
     transform: rotate(360deg);
   }
 }
+
+.addUser{
+  display: flex;
+  align-items: center;
+}
+
+.inputEmail{
+  margin-left: 10px;
+  
+}
+
+.ContainerContac{
+  position: relative;
+	width: 100%;
+	margin: 0 auto;
+	transition: all 0.3s ease-out;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	display: block;
+  border: 1px solid black;
+}
+.card{
+  background-color:rgb(78, 147, 187);
+  align-items: center;
+}
+.avatar{
+  cursor: pointer;
+}
+.avatar:hover{
+  opacity: 0.8;
+}

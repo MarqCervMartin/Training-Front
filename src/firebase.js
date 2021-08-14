@@ -11,7 +11,11 @@ const firebaseConfig = {
     measurementId: "G-85X44ZRV4K"
 };
 
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 firebase.initializeApp(firebaseConfig);
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
-export {auth , provider};
+const dbChat = firebase.database();
+export {auth , provider ,dbChat};

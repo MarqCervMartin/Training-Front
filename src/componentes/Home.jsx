@@ -6,6 +6,8 @@ const Home = () => {
             <h1 className="text-white">
             Aqui es Home
             </h1>
+
+            <button></button>
         </div> 
     )
 }
