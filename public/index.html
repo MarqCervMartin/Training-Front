@@ -32,6 +32,23 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBfFw5HIf76FTPWvT1WZ7OaMDzh_CxYfvY",
+        authDomain: "chatfirebase-4da56.firebaseapp.com",
+        databaseURL: "https://chatfirebase-4da56-default-rtdb.firebaseio.com",
+        projectId: "chatfirebase-4da56",
+        storageBucket: "chatfirebase-4da56.appspot.com",
+        messagingSenderId: "566574066915",
+        appId: "1:566574066915:web:7c2935de70ea28048a29d6",
+        measurementId: "G-TRX54R3JKK"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
