@@ -18,4 +18,5 @@ firebase.initializeApp(firebaseConfig);
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 const dbChat = firebase.database();
-export {auth , provider ,dbChat};
+const db = firebase.firestore();
+export {auth , provider ,db, dbChat};

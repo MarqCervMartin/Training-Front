@@ -16,7 +16,7 @@ import Perfil from "./componentes/Perfil";
 import PageNotFound from "./componentes/PageNotFound";
 import Login from './componentes/Login';
 import {auth} from './firebase';
-
+import ChatFake from './componentes/ChatFake'
 
 function App() {
   const logout = () => {
@@ -59,7 +59,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/contactos" component={Contactos}/>
-          <Route exact path="/chats" component={Chats}/>
+          <Route exact path="/chats" component={ChatFake}/>
           <Route exact path="/info" component={Info}/>
           <Route exact path="/perfil" component={Perfil}/>
           <Route exact path="/Login" component={Login}/>

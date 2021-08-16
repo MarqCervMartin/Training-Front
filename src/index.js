@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App.jsx';
+import ChatProvider from './context/ChatProvider';
 
 
 ReactDOM.render(
     <React.StrictMode>
-    <App />
+    <ChatProvider>
+        <App />
+    </ChatProvider>
     </React.StrictMode>,
     document.getElementById('root')
     );
