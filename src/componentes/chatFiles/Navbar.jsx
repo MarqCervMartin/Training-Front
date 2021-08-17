@@ -1,5 +1,5 @@
 import React from 'react'
-import {ChatContext} from '../context/ChatProvider'
+import {ChatContext} from '../../context/ChatProvider'
 
 const Navbar = () => {
 
