@@ -1,7 +1,6 @@
 import React from 'react'
 import {ChatContext} from '../context/ChatProvider'
 import Chat from '../componentes/chatFiles/ChatLogico'
-import Navbar from '../componentes/chatFiles/Navbar'
 
 
 const ChatFake = () => {
@@ -10,7 +9,6 @@ const ChatFake = () => {
 
     return usuario.activo !== null ? (
         <div>
-            <Navbar />
             {
                 usuario.activo ? (
                     <Chat />

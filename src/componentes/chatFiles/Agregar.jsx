@@ -1,9 +1,22 @@
 import React from 'react'
-import {auth, provider, db} from '../../firebase'
 
-import {ChatContext} from '../../context/ChatProvider'
+import { ChatContext } from '../../context/ChatProvider'
+import { makeStyles } from "@material-ui/styles"
+import Button from '@material-ui/core/Button'
+
+
+const estilos = makeStyles(theme => ({
+    claseButton:{
+        color: 'white',
+        backgroundColor: 'red',
+        border: '1px solid black'
+    }
+
+}))
 
 const Agregar = () => {
+
+    const classes = estilos();
 
     const {agregarMensaje, usuario} = React.useContext(ChatContext)
 
@@ -32,8 +45,15 @@ const Agregar = () => {
                 value={mensaje}
                 placeholder="Escribe un mensaje."
             />
-            <div className="input-group-append">
-                <button className="btn btn-primary" type="submit">Enviar</button>
+            <div className="input-group-append">            
+                <Button
+                    type="submit"
+                    variant="text" 
+                    color="default"
+                    className={classes.claseButton}
+                >
+                hola   
+                </Button>
             </div>
         </form>
     )
