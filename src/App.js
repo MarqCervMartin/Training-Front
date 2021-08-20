@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -9,16 +9,76 @@ import {
   NavLink
 } from "react-router-dom";
 import Home from "./componentes/Home";
-import Chats from "./componentes/Chats";
+//import Chats from "./componentes/Chats";
 import Contactos from "./componentes/Contactos";
 import Info from "./componentes/Info";
 import Perfil from "./componentes/Perfil";
 import PageNotFound from "./componentes/PageNotFound";
 import Login from './componentes/Login';
-import {auth} from './firebase';
+import {auth, dbChat} from './firebase';
 import ChatFake from './componentes/ChatFake'
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 
 function App() {
+
+  const db = dbChat.ref('users/');
+
+  const [user] = useAuthState(auth);
+  useEffect(() => {
+
+    if(user){
+      //console.log('prueba '+ db)
+      //verifico si la ruta existe pero si no 
+      db.child(user.uid).get().then( (snapshot) => {
+        if(snapshot.exists()){
+          console.log('si existe');
+          //cual exista la ruta no hara nada
+          /*db.orderByChild(user.uid).on('child_added',(snapshot) => {//se hace un tipo query donde busca en fire base real database el uid del usuario logueado
+            const idUser = snapshot.key;//obtenemos el uid del usuario
+            console.log(idUser);    //comprobamso que si es el  uid 
+            if(user.uid === idUser) { //comprobamos si el uid de user.uid  e igual al idUser  de la DB 
+              //manda mensae en consola de ya regsiutrado
+              console.log('ya se registro en la base de datos')
+    
+            }else{
+              console.log('registrando usuarios en base de datos')
+              /*pero si no, se hace un set para agregarlo pasando el email
+              nobre su foto el uida entra otros datos*
+              db.child(user.uid).set({
+                email: user.email,
+                name: user.displayName,
+                foto: user.photoURL,        
+                uid: user.uid ,
+                contac: '',
+                grupos:  '' 
+        
+              })
+            }
+          })*/
+
+        }else{
+          //la crea solo una vez con db.child(user.uid).set({
+          console.log('no existe')
+          db.child(user.uid).set({
+            email: user.email,
+            name: user.displayName,
+            foto: user.photoURL,        
+            uid: user.uid ,
+            contac: '',
+            grupos:  '' 
+    
+          })
+          
+        }
+      })
+
+
+       
+    }
+  },[db, user])
+
+
   const logout = () => {
 		auth.signOut();
 	}

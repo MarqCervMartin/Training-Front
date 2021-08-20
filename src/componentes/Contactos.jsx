@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { dbChat } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, dbChat } from "../firebase";
 import ContenContac from "./ContenContac";
 
 
@@ -8,19 +9,35 @@ const Contactos = () => {
     estoy haciendo pruebas asi ref podria cmabiar a 
     ref('user/contactos')
     */
-    const db = dbChat.ref('Contactos/');
+    const db = dbChat.ref('users/');
+    //const dbUsers = dbChat.ref('users/')
+    const [user] = useAuthState(auth);
 
     const addFriends = () =>{    
         const emailUser = document.getElementById("email").value; //se optiene el valor del input
         document.getElementById("email").value ='';//limpiamos el imput
         if(!emailUser) return null; //si no hay nada no retorna nada
             
-        /*contac guardara lso datos del email ingresado */
-        const contac = {   
-            //email: input,
-            email: emailUser,              
-        }
-        db.push(contac);  //con push agregamos el conatco 
+        /*se hace un tipo query donde busca el correo ingresado */
+        //el correo que busca debe de ser igual a emailUser
+        db.orderByChild('email').equalTo(emailUser).on('child_added' , (snapshot) => {
+
+                    console.log(snapshot.key);//comprobamos el uid
+                    console.log(snapshot.val().name);//el nombre
+                    console.log(snapshot.val().email);//el email
+                    console.log(snapshot.val().foto);//la foto 
+                    
+                    const contac = {   
+                        //le pasamos los datos a contac
+                        email: snapshot.val().email,
+                        name: snapshot.val().name,
+                        foto: snapshot.val().foto
+                    }
+                    //sube los datos a realDatabaseen la ruta especificada 
+                    db.child(user.uid+'/contac/').push(contac);  //con push agregamos el conatco 
+            
+
+        })
 
            
     }
@@ -28,7 +45,7 @@ const Contactos = () => {
     const [dataList, setDataList] = useState();
 
     useEffect(() => {
-        db.on('value', (snapshot) => { //optenemos los valores del nodo conatctos
+        db.child(user.uid+'/contac/').on('value', (snapshot) => { //optenemos los valores del nodo conatctos
             const data = snapshot.val();    //se los agremamos aa data
             const dataList = [];
             for(let id in data){//recorrer lso datos
@@ -38,7 +55,7 @@ const Contactos = () => {
             setDataList(dataList);//asignamos los valores a data list de useState
         })
 
-    },[])
+    },[db, user.uid])
           
     return (
         <div className="App">
