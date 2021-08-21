@@ -18,7 +18,7 @@ function ContenContac({cont}) {
                     {
                         //pasamos el email atraves de cont.email
                     }
-                    <p>{cont.email}</p>
+                    <p>{cont.CORREO}</p>
                     <div>
                         <IconButton>
                             {//botones de mensaje y de eliminar 

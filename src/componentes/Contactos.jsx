@@ -4,26 +4,31 @@ import ContenContac from "./ContenContac";
 
 
 const Contactos = () => {
-    /*optengo la ruta de ferencia del no 
+    /*obtengo la ruta de ferencia del no 
     estoy haciendo pruebas asi ref podria cmabiar a 
     ref('user/contactos')
     */
     const db = dbChat.ref('Contactos/');
-
+    //metodo par agregar contactos
     const addFriends = () =>{    
-        const emailUser = document.getElementById("email").value; //se optiene el valor del input
+    const emailUser = document.getElementById("email").value; //se obtiene el valor del input
         document.getElementById("email").value ='';//limpiamos el imput
         if(!emailUser) return null; //si no hay nada no retorna nada
             
         /*contac guardara lso datos del email ingresado */
         const contac = {   
-            //email: input,
+            
             email: emailUser,              
         }
         db.push(contac);  //con push agregamos el conatco 
 
            
     }
+
+
+
+
+    
 
     const [dataList, setDataList] = useState();
 
@@ -45,10 +50,10 @@ const Contactos = () => {
             <h1 className="text-white">
             Aqui estaran tus contactos
             </h1>
-            <div class>
-                <button onClick={addFriends} className="">Add friends</button>
-                <input className="inputEmail" placeholder='email' id="email"></input>
-            </div>
+            
+
+
+            
             <div className='container'>                                                
                 <div className='row mt-1'>
                 {dataList ? dataList.map((cont, index) => //hace mapeo de los datos en cont que sera el contenido
@@ -66,3 +71,15 @@ const Contactos = () => {
 }
 
 export default Contactos;
+/*
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(emailUser)){
+             alert("La dirección de email " + emailUser + " es correcta.");
+            } else {
+             alert("La dirección de email es incorrecta.");
+            }
+            <div class>
+                <button onClick={addFriends} className="">Add friends</button>
+                <input className="inputEmail" placeholder='email' id="email"></input>
+            </div>
+        
+*/
