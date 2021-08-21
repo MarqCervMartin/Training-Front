@@ -17,7 +17,7 @@ const Contactos = () => {
     const addFriends = () =>{    
     const emailUser = document.getElementById("email").value; //se obtiene el valor del input
         document.getElementById("email").value ='';//limpiamos el imput
-        if(!emailUser) return null; //si no hay nada no retorna nada
+        if(!emailUser) return alert('Escriba un correo'); //si no hay nada no retorna nada
             
         /*se hace un tipo query donde busca el correo ingresado */
         //el correo que busca debe de ser igual a emailUser
