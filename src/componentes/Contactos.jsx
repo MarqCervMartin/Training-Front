@@ -42,11 +42,6 @@ const Contactos = () => {
            
     }
 
-
-
-
-    
-
     const [dataList, setDataList] = useState();
 
     useEffect(() => {
@@ -88,15 +83,3 @@ const Contactos = () => {
 }
 
 export default Contactos;
-/*
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(emailUser)){
-             alert("La dirección de email " + emailUser + " es correcta.");
-            } else {
-             alert("La dirección de email es incorrecta.");
-            }
-            <div class>
-                <button onClick={addFriends} className="">Add friends</button>
-                <input className="inputEmail" placeholder='email' id="email"></input>
-            </div>
-        
-*/
