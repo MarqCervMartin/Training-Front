@@ -52,7 +52,7 @@ const Agregar = () => {
                     color="default"
                     className={classes.claseButton}
                 >
-                hola   
+                Enviar  
                 </Button>
             </div>
         </form>
