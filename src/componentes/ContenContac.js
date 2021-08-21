@@ -3,6 +3,8 @@ import ChatIcon from '@material-ui/icons/Chat';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, dbChat } from "../firebase";
+import Agregar from '../componentes/chatFiles/Agregar'
+
 
 function ContenContac({cont}) {
     const db = dbChat.ref('users/');//hacemos referencia al nodo 
@@ -27,8 +29,9 @@ function ContenContac({cont}) {
                         <IconButton>
                             {//botones de mensaje y de eliminar 
                             }
-                            <ChatIcon className=""/>
+                            <ChatIcon className="" onclick="window.location.href='../componentes/chatFiles/Chat' "/>                            
                         </IconButton>
+
                         <IconButton>
                             <DeleteIcon className="" onClick={deleteContac}/>
                         </IconButton>

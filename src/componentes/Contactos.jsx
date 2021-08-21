@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, dbChat } from "../firebase";
 import ContenContac from "./ContenContac";
+import Button from '@material-ui/core/Button'
 
 
 const Contactos = () => {
@@ -16,7 +17,7 @@ const Contactos = () => {
     const addFriends = () =>{    
     const emailUser = document.getElementById("email").value; //se obtiene el valor del input
         document.getElementById("email").value ='';//limpiamos el imput
-        if(!emailUser) return null; //si no hay nada no retorna nada
+        if(!emailUser) return alert('Escriba un correo'); //si no hay nada no retorna nada
             
         /*se hace un tipo query donde busca el correo ingresado */
         //el correo que busca debe de ser igual a emailUser
@@ -45,6 +46,7 @@ const Contactos = () => {
     const [dataList, setDataList] = useState();
 
     useEffect(() => {
+
         db.child(user.uid+'/contac/').on('value', (snapshot) => { //optenemos los valores del nodo conatctos
             const data = snapshot.val();    //se los agremamos aa data
             const dataList = [];
@@ -60,9 +62,20 @@ const Contactos = () => {
     return (
         <div className="App">
             <h1 className="text-white">
-            Aqui estaran tus contactos
+            Tus Contactos
             </h1>
-            
+            <div class>
+                <Button 
+                    variant="contained" 
+                    color="secondary"
+                    onClick={addFriends}
+                    className=""
+                >
+                  Add Contact
+                </Button>
+                
+                <input className="inputEmail" placeholder='email' id="email"></input>
+            </div>
 
 
             
