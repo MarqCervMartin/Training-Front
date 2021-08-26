@@ -2,8 +2,7 @@ import { Avatar, IconButton } from "@material-ui/core";
 import ChatIcon from '@material-ui/icons/Chat';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, dbChat } from "../firebase";
-import Agregar from '../componentes/chatFiles/Agregar'
+import { auth, dbChat } from "../../../firebase/firebase";
 
 
 function ContenContac({cont}) {

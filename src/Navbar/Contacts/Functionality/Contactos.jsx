@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, dbChat } from "../firebase";
+import { auth, dbChat } from "../../../firebase/firebase";
 import ContenContac from "./ContenContac";
 import Button from '@material-ui/core/Button'
 

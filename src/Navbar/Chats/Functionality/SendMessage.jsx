@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ChatContext } from '../../context/ChatProvider'
+import { ChatContext } from './ChatProvider'
 import { makeStyles } from "@material-ui/styles"
 import Button from '@material-ui/core/Button'
 
@@ -14,7 +14,7 @@ const estilos = makeStyles(theme => ({
 
 }))
 
-const Agregar = () => {
+const SendMessage = () => {
 
     const classes = estilos();
 
@@ -59,4 +59,4 @@ const Agregar = () => {
     )
 }
 
-export default Agregar
+export default SendMessage

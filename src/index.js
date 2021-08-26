@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import App from './App.jsx';
-import ChatProvider from './context/ChatProvider';
+import App from './App.jsx'; // Es el LOGIN
+import ChatProvider from './Navbar/Chats/Functionality/ChatProvider';
 
 
 ReactDOM.render(

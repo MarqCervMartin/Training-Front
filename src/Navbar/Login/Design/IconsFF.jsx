@@ -1,6 +1,6 @@
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import { makeStyles, Typography } from '@material-ui/core';
-import firebase from '../svg_p/firebase.svg'
+import firebase from '../../../img/svg_p/firebase.svg'
 
 const estilos = makeStyles(theme => ({
     colorW:{
@@ -27,7 +27,7 @@ const estilos = makeStyles(theme => ({
 
 }))
 
-const IconosPP = () => {
+const IconsFF = () => {
     const classes = estilos()
     return (
         <div>
@@ -56,4 +56,4 @@ const IconosPP = () => {
     )
 }
 
-export default IconosPP
+export default IconsFF

@@ -1,5 +1,5 @@
 import React from 'react'
-import {auth, provider, db} from '../firebase'
+import {auth, provider, db} from '../../../firebase/firebase'
 
 export const ChatContext = React.createContext()
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import {auth , provider}  from './firebase.js';
+import {auth , provider}  from '../../../firebase/firebase';
 
 
 
-const Login = () => {
+const LoginChat = () => {
   
     // Sign in with google
     const signin = () => {
@@ -25,4 +25,4 @@ const Login = () => {
     );
 }
   
-export default Login;
+export default LoginChat;

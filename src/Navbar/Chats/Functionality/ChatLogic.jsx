@@ -1,9 +1,9 @@
 import React from 'react'
 
-import {ChatContext} from '../context/ChatProvider'
-import Agregar from '../Agregar'
+import {ChatContext} from './ChatProvider'
+import SendMessage from './SendMessage'
 
-const Chat = () => {
+const ChatLogic = () => {
 
     const {usuario, mensajes} = React.useContext(ChatContext)
     const refZonaChat = React.useRef(null)
@@ -38,10 +38,10 @@ const Chat = () => {
                 ))
             }
 
-            <Agregar />
+            <SendMessage />
         
         </div>
     )
 }
 
-export default Chat         
+export default ChatLogic         

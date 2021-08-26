@@ -1,11 +1,8 @@
 import Button from '@material-ui/core/Button'
-import google from '../svg_p/google.svg'
-import gmail from '../svg_p/gmail.svg'
+import google from '../../../img/svg_p/google.svg'
+import gmail from '../../../img/svg_p/gmail.svg'
 import { makeStyles } from '@material-ui/styles'
-import { MdEmail } from "react-icons/md";
-import {auth , provider}  from '../../firebase';
-
-import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth , provider}  from '../../../firebase/firebase'
 
 const estilos = makeStyles(theme=> ({
     claseImg:{
@@ -38,7 +35,7 @@ const estilos = makeStyles(theme=> ({
 
 
 
-const BotonesPP = () => {
+const ButtonsFF = () => {
         // Sign in with google
 
     const signin = () => {
@@ -89,31 +86,4 @@ const BotonesPP = () => {
 
 }
 
-export default BotonesPP
-
-
-
-/*
-            <div>
-            <Button 
-                    variant="contained" 
-                    color="default"
-                    className={classes.claseButton2}
-                    //onClick= {loginWithEmail}
-                    //onClick= {() => loginWithEmailParams('Gustavo', 4444)}
-                    //onClick= {imprimir}
-                >
-                    <img 
-                        src={gmail} 
-                        alt="logoGoogle"    
-                        className={classes.claseImg2}        
-                    />
-                    <MdEmail
-                        size={100}
-                        color={'red'}
-                    />
-                    Login With Icon  
-                </Button>
-            </div>
-
-*/
+export default ButtonsFF

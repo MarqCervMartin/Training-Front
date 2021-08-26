@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,19 +8,19 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
-import Home from "./componentes/Home";
+import Home from "./Home/Design/Home";
 //import Chats from "./componentes/Chats";
-import Contactos from "./componentes/Contactos";
-import Info from "./componentes/Info";
-import Perfil from "./componentes/Perfil";
-import PageNotFound from "./componentes/PageNotFound";
-import Login from './componentes/Login';
-import {auth, dbChat} from './firebase';
-import ChatFake from './componentes/ChatFake'
+import Contactos from "./Contacts/Functionality/Contactos";
+import Info from "./Info/Design/Info";
+import Perfil from "./Perfil/Design/Perfil";
+import PageNotFound from "./PageNotFound/PageNotFound";
+import Login from './Login/Functionality/Login';
+import {auth, dbChat} from '../firebase/firebase';
+import LoginChat from './Login/Functionality/LoginChat'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
-function App() {
+function Navbar() {
 
   const db = dbChat.ref('users/');
 
@@ -119,7 +119,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/contactos" component={Contactos}/>
-          <Route exact path="/chats" component={ChatFake}/>
+          <Route exact path="/chats" component={LoginChat}/>
           <Route exact path="/info" component={Info}/>
           <Route exact path="/perfil" component={Perfil}/>
           <Route exact path="/Login" component={Login}/>
@@ -129,4 +129,4 @@ function App() {
     </Router>
   );
 }
-export default App;
+export default Navbar;
