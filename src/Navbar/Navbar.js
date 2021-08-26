@@ -16,7 +16,7 @@ import Perfil from "./Perfil/Design/Perfil";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Login from './Login/Functionality/Login';
 import {auth, dbChat} from '../firebase/firebase';
-import LoginChat from './Login/Functionality/LoginChat'
+import ChatMain from './Chats/Functionality/ChatMain'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
@@ -119,7 +119,7 @@ function Navbar() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/contactos" component={Contactos}/>
-          <Route exact path="/chats" component={LoginChat}/>
+          <Route exact path="/chats" component={ChatMain}/>
           <Route exact path="/info" component={Info}/>
           <Route exact path="/perfil" component={Perfil}/>
           <Route exact path="/Login" component={Login}/>
