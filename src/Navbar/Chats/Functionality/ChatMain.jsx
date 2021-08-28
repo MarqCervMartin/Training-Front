@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {ChatContext} from './ChatProvider'
 import Chat from './ChatLogic'
-import { dbChat } from '../../../firebase/firebase'
+import { auth, dbChat } from '../../../firebase/firebase'
 import { useParams } from 'react-router-dom'
 import { Avatar } from '@material-ui/core'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 
 const ChatFake = () => {
@@ -11,20 +12,34 @@ const ChatFake = () => {
     const {usuario} = React.useContext(ChatContext)
     const [dataEmail, setDataEmail] = useState();
     const [dataPhoto, setDataPhoto] = useState();
-
+    
     const {id} = useParams();
-    const db = dbChat.ref('users/');
+    console.log('identificador: '+id)
+    const db = dbChat.ref('chats/');
+
 
     
     useEffect(() => {
         if(id){
-            db.orderByChild('uid').equalTo(id).on('child_added' , (snapshot) => {
+            db.child(id).get().then((snapCom) => {
+                if(snapCom.exists()){
+                    const UserEmail = snapCom.val().email;
+                    const foto = snapCom.val().foto;
+                    setDataEmail(UserEmail);
+                    setDataPhoto(foto);
+
+                    console.log(snapCom.val().email)
+                }
+            })
+
+
+            /*db.orderByChild(id).equalTo(id).on('child_added' , (snapshot) => {
                 console.log(snapshot.val().email);
                 const UserEmail = snapshot.val().email;
                 const foto = snapshot.val().foto;
                 setDataEmail(UserEmail);
                 setDataPhoto(foto);
-            })
+            })*/
         }else{
             const UserEmail = "selecciona un contacto";
             setDataEmail(UserEmail);

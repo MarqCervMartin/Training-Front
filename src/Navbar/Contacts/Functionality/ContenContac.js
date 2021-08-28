@@ -26,20 +26,35 @@ function ContenContac({cont}) {
     }
 
 
-    console.log("usuairo "+cont.userid);
+    //console.log("usuairo "+cont.userid);
     const useridChat = cont.userid; 
 
     const pageChat = useHistory();
     //console.log(pageChat)
 
-    const idChat = user.uid+"-"+ useridChat;
+    
+    
     const clickChat = () => {
+        if(user.uid < useridChat){
+            const idChat = user.uid+"-"+ useridChat;
+            dbc.child(idChat).set({
+                email: cont.email,
+                foto: cont.foto,
 
-        dbc.child(idChat).set({
-            email: cont.email,
-        })
-        console.log(useridChat);
-        pageChat.push(`/chats/${useridChat}`);
+            })
+            //console.log(useridChat);
+            pageChat.push(`/chats/${idChat}`);
+        }else{
+            const idChat = useridChat+"-"+ user.uid;
+            dbc.child(idChat).set({
+                email: cont.email,
+                foto: cont.foto,
+            })
+            //console.log(useridChat);
+            pageChat.push(`/chats/${idChat}`);
+        }
+
+        
     }
     return (
         <div className="col-md-3">  
