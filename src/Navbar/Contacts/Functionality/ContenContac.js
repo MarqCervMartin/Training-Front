@@ -8,14 +8,25 @@ import { auth, dbChat } from "../../../firebase/firebase";
 
 function ContenContac({cont}) {
     const db = dbChat.ref('users/');//hacemos referencia al nodo 
-    const dbc = dbChat.ref('chats')
+    const dbc = dbChat.ref('chats/');
 
     const [user] = useAuthState(auth);
 
     const deleteContac = () => {
-        db.child(user.uid+'/contac/'+cont.id).remove();
+
+        const confirmation = window.confirm("estas seguro eliminar a tu contatco");
+
+        if(confirmation){
+            db.child(user.uid+'/contac/'+cont.id).remove();
+            alert('contacto eliminado')
+        }else{
+            alert('contacto no eliminado ')
+        }
+
+        
 
     }
+
 
     console.log(cont.userid);
     const useridChat = cont.userid;
@@ -26,13 +37,14 @@ function ContenContac({cont}) {
     //console.log(pageChat)
 
     const idChat = user.uid+"-"+ useridChat;
+   // console.log(idChat);
     const clickChat = () => {
 
         dbc.child(idChat).set({
             email: cont.email,
         })
         console.log(useridChat);
-       // pageChat.push(`/chats/${useridChat}`);
+        pageChat.push(`/info`);
     }
 
     return (

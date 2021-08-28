@@ -32,7 +32,9 @@ const Contactos = () => {
                         //le pasamos los datos a contac
                         email: snapshot.val().email,
                         name: snapshot.val().name,
-                        foto: snapshot.val().foto
+                        foto: snapshot.val().foto,
+                        userid: snapshot.val().uid
+
                     }
                     //sube los datos a realDatabaseen la ruta especificada 
                     db.child(user.uid+'/contac/').push(contac);  //con push agregamos el conatco 

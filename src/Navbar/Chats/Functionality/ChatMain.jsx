@@ -11,12 +11,12 @@ const ChatMain = () => {
     const {usuario} = React.useContext(ChatContext)
     const [dataEmail, setDataEmail] = useState();
     const [dataPhoto, setDataPhoto] = useState();
+
+    const {id} = useParams();
     const db = dbChat.ref('users/');
 
-    const id = useParams();
-
+    
     useEffect(() => {
-
         if(id){
             db.orderByChild('uid').equalTo(id).on('child_added' , (snapshot) => {
                 console.log(snapshot.val().email);
@@ -32,6 +32,7 @@ const ChatMain = () => {
 
     
     })
+
 
     return usuario.activo !== null ? (
         <div>
