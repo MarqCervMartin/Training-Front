@@ -57,7 +57,7 @@ const Contactos = () => {
             setDataList(dataList);//asignamos los valores a data list de useState
         })
 
-    },[db, user.uid])
+    },[])
           
     return (
         <div className="App">

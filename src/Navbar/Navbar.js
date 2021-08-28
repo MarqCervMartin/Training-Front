@@ -76,7 +76,7 @@ function Navbar() {
 
        
     }
-  },[db, user])
+  },[])
 
 
   const logout = () => {
@@ -123,6 +123,7 @@ function Navbar() {
           <Route exact path="/info" component={Info}/>
           <Route exact path="/perfil" component={Perfil}/>
           <Route exact path="/Login" component={Login}/>
+          <Route exact path="/chats/:id" children={<ChatMain/>}/>
           <Route component={PageNotFound}/>
         </Switch>  
       </div>
