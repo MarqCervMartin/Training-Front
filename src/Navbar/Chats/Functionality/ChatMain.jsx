@@ -32,7 +32,8 @@ const ChatFake = () => {
                 }
             })
 
-
+/*TODO:mejorar version de datos del chat y mandar mensajes en el chat con el usuario 
+*/
             /*db.orderByChild(id).equalTo(id).on('child_added' , (snapshot) => {
                 console.log(snapshot.val().email);
                 const UserEmail = snapshot.val().email;
