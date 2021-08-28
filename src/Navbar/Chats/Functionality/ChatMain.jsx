@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import { Avatar } from '@material-ui/core'
 
 
-const ChatMain = () => {
+const ChatFake = () => {
 
     const {usuario} = React.useContext(ChatContext)
     const [dataEmail, setDataEmail] = useState();
@@ -33,10 +33,10 @@ const ChatMain = () => {
     
     })
 
+    
 
     return usuario.activo !== null ? (
         <div>
-
             <div>
                 <div className="id_chat">
                     <Avatar className="avatar" src={dataPhoto}/>
@@ -46,6 +46,7 @@ const ChatMain = () => {
                 </div>
                 
             </div>
+
             {
                 usuario.activo ? (
                     <Chat />
@@ -59,4 +60,4 @@ const ChatMain = () => {
     ) : (<div>Cargando...</div>)
 }
 
-export default ChatMain
+export default ChatFake

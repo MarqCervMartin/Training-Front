@@ -15,35 +15,42 @@ const Contactos = () => {
     const [user] = useAuthState(auth);
 
     const addFriends = () =>{    
-    const emailUser = document.getElementById("email").value; //se obtiene el valor del input
+        const emailUser = document.getElementById("email").value; //se obtiene el valor del input
         document.getElementById("email").value ='';//limpiamos el imput
-        if(!emailUser) return alert('Escriba un correo'); //si no hay nada no retorna nada
+        if(!emailUser) return null; //si no hay nada no retorna nada
             
         /*se hace un tipo query donde busca el correo ingresado */
         //el correo que busca debe de ser igual a emailUser
         db.orderByChild('email').equalTo(emailUser).on('child_added' , (snapshot) => {
+            /*console.log(snapshot.key);//comprobamos el uid
+            console.log(snapshot.val().name);//el nombre
+            console.log(snapshot.val().email);//el email
+            console.log(snapshot.val().foto);//la foto */
+            if(emailUser === user.email){
+                console.log('correo no valido ingrese otro ');
+                alert('No te puedes agregar a ti mismo  ');
+            }else{
+                db.child(user.uid+'/contac/').orderByChild('email').equalTo(emailUser).get().then((snapCom) => {
+                    if(snapCom.exists()){
+                        console.log(snapCom.val())
+                        alert('contacto ya registrado')
+                    }else{
 
-                    console.log(snapshot.key);//comprobamos el uid
-                    console.log(snapshot.val().name);//el nombre
-                    console.log(snapshot.val().email);//el email
-                    console.log(snapshot.val().foto);//la foto 
-                    
-                    const contac = {   
-                        //le pasamos los datos a contac
-                        email: snapshot.val().email,
-                        name: snapshot.val().name,
-                        foto: snapshot.val().foto,
-                        userid: snapshot.val().uid
-
+                        const contac = {   
+                            //le pasamos los datos a contac
+                            email: snapshot.val().email,
+                            name: snapshot.val().name,
+                            foto: snapshot.val().foto,
+                            userid : snapshot.val().uid
+                        }
+                        //sube los datos a realDatabaseen la ruta especificada 
+                        db.child(user.uid+'/contac/').push(contac);  //con push agregamos el conatco 
+                        alert("contacto registrado con exito ");
                     }
-                    //sube los datos a realDatabaseen la ruta especificada 
-                    db.child(user.uid+'/contac/').push(contac);  //con push agregamos el conatco 
-            
-
+                })
+            }         
         })
-
-           
-    }
+    } 
 
     const [dataList, setDataList] = useState();
 

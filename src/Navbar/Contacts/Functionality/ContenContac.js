@@ -37,16 +37,14 @@ function ContenContac({cont}) {
     //console.log(pageChat)
 
     const idChat = user.uid+"-"+ useridChat;
-   // console.log(idChat);
     const clickChat = () => {
 
         dbc.child(idChat).set({
             email: cont.email,
         })
         console.log(useridChat);
-        pageChat.push(`/info`);
+        pageChat.push(`/chats/${useridChat}`);
     }
-
     return (
         <div className="col-md-3">  
             <div className="card  mt-3">
@@ -61,7 +59,7 @@ function ContenContac({cont}) {
                         <IconButton>
                             {//botones de mensaje y de eliminar 
                             }
-                            <ChatIcon className="" onclick={clickChat}/>                            
+                            <ChatIcon className="" onClick={clickChat}/>
                         </IconButton>
 
                         <IconButton>
