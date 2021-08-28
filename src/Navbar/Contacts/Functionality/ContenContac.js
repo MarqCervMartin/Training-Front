@@ -8,7 +8,7 @@ import { auth, dbChat } from "../../../firebase/firebase";
 
 function ContenContac({cont}) {
     const db = dbChat.ref('users/');//hacemos referencia al nodo 
-    const dbc = dbChat.ref('chats/');
+    const dbc = dbChat.ref('chats/');//hacemos referencia al nodo chats
 
     const [user] = useAuthState(auth);
 
@@ -23,15 +23,11 @@ function ContenContac({cont}) {
             alert('contacto no eliminado ')
         }
 
-        
-
     }
 
 
-    console.log(cont.userid);
-    const useridChat = cont.userid;
-    
-    
+    console.log("usuairo "+cont.userid);
+    const useridChat = cont.userid; 
 
     const pageChat = useHistory();
     //console.log(pageChat)
