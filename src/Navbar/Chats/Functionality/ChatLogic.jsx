@@ -3,10 +3,12 @@ import React from 'react'
 import {ChatContext} from './ChatProvider'
 import SendMessage from './SendMessage'
 
-const ChatLogic = () => {
+const ChatLogic = (props) => {
 
     const {usuario, mensajes} = React.useContext(ChatContext)
     const refZonaChat = React.useRef(null)
+
+    console.log(props.idref)
 
     React.useEffect(() => {
         if(refZonaChat.current !== null){

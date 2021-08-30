@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {ChatContext} from './ChatProvider'
 import Chat from './ChatLogic'
-import { auth, dbChat } from '../../../firebase/firebase'
+import { dbChat } from '../../../firebase/firebase'
 import { useParams } from 'react-router-dom'
 import { Avatar } from '@material-ui/core'
-import { useAuthState } from 'react-firebase-hooks/auth'
+
 
 
 const ChatFake = () => {
@@ -14,7 +14,7 @@ const ChatFake = () => {
     const [dataPhoto, setDataPhoto] = useState();
     
     const {id} = useParams();
-    console.log('identificador: '+id)
+   // console.log('identificador: '+id)
     const db = dbChat.ref('chats/');
 
 
@@ -28,7 +28,7 @@ const ChatFake = () => {
                     setDataEmail(UserEmail);
                     setDataPhoto(foto);
 
-                    console.log(snapCom.val().email)
+                  //  console.log(snapCom.val().email)
                 }
             })
 
@@ -47,7 +47,7 @@ const ChatFake = () => {
         }
 
     
-    })
+    }, [id, db])
 
     
 
@@ -65,7 +65,7 @@ const ChatFake = () => {
 
             {
                 usuario.activo ? (
-                    <Chat />
+                    <Chat idref={id}/>
                 ) : (
                     <div className='text-center mt-5 lead'>
                         click en acceder para iniciar chat
