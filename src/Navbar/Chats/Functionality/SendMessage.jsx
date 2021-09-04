@@ -3,7 +3,7 @@ import React from 'react'
 import { ChatContext } from './ChatProvider'
 import { makeStyles } from "@material-ui/styles"
 import Button from '@material-ui/core/Button'
-
+import { dbChat } from '../../../firebase/firebase';
 
 const estilos = makeStyles(theme => ({
     claseButton:{
@@ -14,13 +14,14 @@ const estilos = makeStyles(theme => ({
 
 }))
 
-const SendMessage = () => {
+const SendMessage = ({channel}) => {
 
     const classes = estilos();
 
     const {agregarMensaje, usuario} = React.useContext(ChatContext)
 
     const [mensaje, setMensaje] = React.useState('')
+    const db = dbChat.ref(`chats/${channel}`);
 
     const formulario = e => {
         e.preventDefault()
@@ -29,6 +30,30 @@ const SendMessage = () => {
             return
         }
         agregarMensaje(usuario.uid, mensaje)
+        //Agregar Firebase
+        console.log('Users Channel: ', channel)
+        db.push({
+                id: Math.round(Math.random() * 1000000),
+                uid: usuario.uid,
+                text: mensaje,
+                createdAt: new Date().getTime(),
+                status: false,
+                /* TODO: OBTENER AMBOS ID'S
+                user: {
+                _id: currentUser.uid,
+                email: currentUser.email,
+                },
+                userRecived: {
+                _id: uid,
+                email: email,
+                },
+
+                */
+            })
+        .then((res) => {
+          //Aqui despues de enviar mensaje
+          console.log('mensaje guardado');
+        })
         console.log(usuario);
         setMensaje('')
     }
