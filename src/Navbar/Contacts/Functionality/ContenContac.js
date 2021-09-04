@@ -50,7 +50,7 @@ function ContenContac({cont}) {
                 email: cont.email,
                 foto: cont.foto,
             })
-            //console.log(useridChat);
+            console.log(useridChat);
             pageChat.push(`/chats/${idChat}`);
         }
 

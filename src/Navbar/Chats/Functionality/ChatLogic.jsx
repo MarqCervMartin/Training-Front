@@ -19,6 +19,8 @@ const ChatLogic = (props) => {
         }
       }, [mensajes])
 
+      console.log('mensajes', mensajes);
+
     return (
         <div 
             className='mt-3 px-2' 
