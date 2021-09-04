@@ -2,6 +2,7 @@ import React from 'react'
 
 import {ChatContext} from './ChatProvider'
 import SendMessage from './SendMessage'
+import { dbChat } from '../../../firebase/firebase'
 
 const ChatLogic = (props) => {
 
@@ -9,6 +10,8 @@ const ChatLogic = (props) => {
     const refZonaChat = React.useRef(null)
 
     console.log(props.idref)
+    const db = dbChat.ref(`chats/${props.idref}`);
+    const [messages, setMessages] = React.useState([]);
 
     React.useEffect(() => {
         if(refZonaChat.current !== null){
@@ -19,8 +22,22 @@ const ChatLogic = (props) => {
         }
       }, [mensajes])
 
+<<<<<<< HEAD
       console.log('mensajes', mensajes);
 
+=======
+    React.useEffect(() => {
+        const messagesListener = db.orderByChild('createdAt')
+          .limitToLast(20)
+          .on('child_added', (snapshot) => {
+              //console.log('********AGREGANDO************');
+              setMessages((prevState) => [...prevState, snapshot.val()]);
+          });
+      return () => db.off('child_added', messagesListener);
+    }, [props.idref]);
+
+    console.log('Mensajes de Firebase : ', messages)
+>>>>>>> 377f03c9522ec05eb213b7811807e199006f8c00
     return (
         <div 
             className='mt-3 px-2' 
@@ -29,20 +46,20 @@ const ChatLogic = (props) => {
         >
 
             {
-                mensajes.map((item, index) => (
+                messages.map((item, index) => (
                     item.uid === usuario.uid ? (
                         <div className="d-flex justify-content-end mb-2" key={index}>
-                            <span className="badge badge-pill badge-primary">{item.texto}</span>
+                            <span className="badge badge-pill badge-primary">{item.text}</span>
                         </div>
                     ) : (
                         <div className="d-flex justify-content-start mb-2" key={index}>
-                            <span className="badge badge-pill badge-secondary">{item.texto}</span>
+                            <span className="badge badge-pill badge-secondary">{item.text}</span>
                         </div>
                     )
                 ))
             }
 
-            <SendMessage />
+            <SendMessage channel={props.idref}/>
         
         </div>
     )
