@@ -35,6 +35,10 @@ function ContenContac({cont}) {
     
     
     const clickChat = () => {
+        //Boton para enviar mensaje a otro usuario
+        console.log('IDUsuario Actual: ', user.uid);
+        console.log('IDUsuario Destion: ', useridChat);
+
         if(user.uid < useridChat){
             const idChat = user.uid+"-"+ useridChat;
             dbc.child(idChat).get().then((snapshot) => {
@@ -78,6 +82,7 @@ function ContenContac({cont}) {
                     pageChat.push(`/chats/${idChat}`);
                 }
             })
+            pageChat.push(`/chats/${idChat}`);
         }
 
         
