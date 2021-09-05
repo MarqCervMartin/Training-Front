@@ -76,7 +76,7 @@ function Navbar() {
 
        
     }
-  },[])
+  },[db, user])
 
 
   const logout = () => {

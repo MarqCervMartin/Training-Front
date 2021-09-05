@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {ChatContext} from './ChatProvider'
 import Chat from './ChatLogic'
-import { dbChat } from '../../../firebase/firebase'
+import { auth, dbChat } from '../../../firebase/firebase'
 import { useParams } from 'react-router-dom'
 import { Avatar } from '@material-ui/core'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 
 
@@ -12,10 +13,12 @@ const ChatFake = () => {
     const {usuario} = React.useContext(ChatContext)
     const [dataEmail, setDataEmail] = useState();
     const [dataPhoto, setDataPhoto] = useState();
+    const [user] = useAuthState(auth);
     
     const {id} = useParams();
    // console.log('identificador: '+id)
     const db = dbChat.ref('chats/');
+    const dbu = dbChat.ref('users/');
 
 
     
@@ -23,24 +26,34 @@ const ChatFake = () => {
         if(id){
             db.child(id).get().then((snapCom) => {
                 if(snapCom.exists()){
-                    const UserEmail = snapCom.val().email;
-                    const foto = snapCom.val().foto;
-                    setDataEmail(UserEmail);
-                    setDataPhoto(foto);
+                    const data = snapCom.val();
+                    const dataList = [];
+                    for(let id in data){//recorrer lso datos
+                        dataList.push({id, ...data[id]}); //agregamos el id y data a datalist
+                    }
 
-                  //  console.log(snapCom.val().email)
+                    if(dataList[0].email !== user.email){
+                       // console.log('email1',dataList[0].email)
+                        dbu.orderByChild('email').equalTo(dataList[0].email).on('child_added' , (snapshot) => {
+                            //console.log(snapshot.key);
+                            setDataEmail(snapshot.val().email);
+                            setDataPhoto(snapshot.val().foto);                           
+                        })
+                        
+                    }else{
+                        //console.log('email2',dataList[1].email)
+                        dbu.orderByChild('email').equalTo(dataList[1].email).on('child_added' , (snapshot) => {
+                            //console.log(snapshot.key);
+                            //console.log(snapshot.key);
+                            setDataEmail(snapshot.val().email);
+                            setDataPhoto(snapshot.val().foto);
+                                 
+                        })
+                    }
                 }
             })
 
-/*:mejorar version de datos del chat y mandar mensajes en el chat con el usuario 
-*/
-            /*db.orderByChild(id).equalTo(id).on('child_added' , (snapshot) => {
-                console.log(snapshot.val().email);
-                const UserEmail = snapshot.val().email;
-                const foto = snapshot.val().foto;
-                setDataEmail(UserEmail);
-                setDataPhoto(foto);
-            })*/
+
         }else{
             const UserEmail = "selecciona un contacto";
             setDataEmail(UserEmail);
@@ -48,8 +61,6 @@ const ChatFake = () => {
 
     
     }, [id, db])
-
-    
 
     return usuario.activo !== null ? (
         <div>

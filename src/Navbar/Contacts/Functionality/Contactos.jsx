@@ -27,7 +27,7 @@ const Contactos = () => {
             console.log(snapshot.val().email);//el email
             console.log(snapshot.val().foto);//la foto */
             if(emailUser === user.email){
-                console.log('correo no valido ingrese otro ');
+                //console.log('correo no valido ingrese otro ');
                 alert('No te puedes agregar a ti mismo  ');
             }else{
                 db.child(user.uid+'/contac/').orderByChild('email').equalTo(emailUser).get().then((snapCom) => {

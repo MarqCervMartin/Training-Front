@@ -37,21 +37,47 @@ function ContenContac({cont}) {
     const clickChat = () => {
         if(user.uid < useridChat){
             const idChat = user.uid+"-"+ useridChat;
-            dbc.child(idChat).set({
-                email: cont.email,
-                foto: cont.foto,
-
+            dbc.child(idChat).get().then((snapshot) => {
+                if(snapshot.exists()){
+                   // console.log('si existe',snapshot.val())
+                    pageChat.push(`/chats/${idChat}`);
+                }else{
+                    dbc.child(idChat).push({
+                        email: cont.email, 
+                        foto: cont.foto,
+        
+                    })
+                    dbc.child(idChat).push({
+                        email: user.email, 
+                        foto: user.photoURL,
+        
+                    })
+                    //console.log(useridChat);
+                    pageChat.push(`/chats/${idChat}`);
+                }
             })
-            //console.log(useridChat);
-            pageChat.push(`/chats/${idChat}`);
+            
         }else{
             const idChat = useridChat+"-"+ user.uid;
-            dbc.child(idChat).set({
-                email: cont.email,
-                foto: cont.foto,
+            dbc.child(idChat).get().then((snapshot) => {
+                if(snapshot.exists()){
+                    //console.log('si existe',snapshot.val())
+                    pageChat.push(`/chats/${idChat}`);
+                }else{
+                    dbc.child(idChat).push({
+                        email: cont.email, 
+                        foto: cont.foto,
+        
+                    })
+                    dbc.child(idChat).push({
+                        email: user.email, 
+                        foto: user.photoURL,
+        
+                    })
+                    //console.log(useridChat);
+                    pageChat.push(`/chats/${idChat}`);
+                }
             })
-            console.log(useridChat);
-            pageChat.push(`/chats/${idChat}`);
         }
 
         

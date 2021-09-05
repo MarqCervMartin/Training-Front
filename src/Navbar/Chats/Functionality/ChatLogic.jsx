@@ -9,7 +9,7 @@ const ChatLogic = (props) => {
     const {usuario, mensajes} = React.useContext(ChatContext)
     const refZonaChat = React.useRef(null)
 
-    console.log(props.idref)
+    //console.log(props.idref)
     const db = dbChat.ref(`chats/${props.idref}`);
     const [messages, setMessages] = React.useState([]);
 
@@ -22,12 +22,10 @@ const ChatLogic = (props) => {
         }
       }, [mensajes])
 
-<<<<<<< HEAD
-      console.log('mensajes', mensajes);
+    //console.log('mensajes', mensajes);
 
-=======
     React.useEffect(() => {
-        const messagesListener = db.orderByChild('createdAt')
+        const messagesListener = db.child('/mensajes/').orderByChild('createdAt')
           .limitToLast(20)
           .on('child_added', (snapshot) => {
               //console.log('********AGREGANDO************');
@@ -36,8 +34,7 @@ const ChatLogic = (props) => {
       return () => db.off('child_added', messagesListener);
     }, [props.idref]);
 
-    console.log('Mensajes de Firebase : ', messages)
->>>>>>> 377f03c9522ec05eb213b7811807e199006f8c00
+    //console.log('Mensajes de Firebase : ', messages)
     return (
         <div 
             className='mt-3 px-2' 

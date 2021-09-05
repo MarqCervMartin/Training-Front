@@ -31,8 +31,8 @@ const SendMessage = ({channel}) => {
         }
         agregarMensaje(usuario.uid, mensaje)
         //Agregar Firebase
-        console.log('Users Channel: ', channel)
-        db.push({
+        //console.log('Users Channel: ', channel)
+        db.child('/mensajes/').push({
                 id: Math.round(Math.random() * 1000000),
                 uid: usuario.uid,
                 text: mensaje,
@@ -52,9 +52,9 @@ const SendMessage = ({channel}) => {
             })
         .then((res) => {
           //Aqui despues de enviar mensaje
-          console.log('mensaje guardado');
+          //console.log('mensaje guardado');
         })
-        console.log(usuario);
+       // console.log(usuario);
         setMensaje('')
     }
 
